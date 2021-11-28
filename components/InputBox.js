@@ -5,7 +5,6 @@ import { CameraIcon, VideoCameraIcon } from '@heroicons/react/solid';
 import { useRef, useState } from 'react';
 import { db, storage } from '../firebase';
 import firebase from 'firebase';
-import { render } from 'react-dom';
 
 function InputBox() {
 	const [session] = useSession();
@@ -66,7 +65,7 @@ function InputBox() {
 			reader.readAsDataURL(e.target.files[0]);
 		}
 
-		render.onload = (readerEvent) => {
+		reader.onload = (readerEvent) => {
 			setImageToPost(readerEvent.target.result);
 		};
 	};
